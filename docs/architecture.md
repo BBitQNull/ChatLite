@@ -59,9 +59,9 @@ server.hpp
 声明服务器端各模块以及定义在线用户列表和socket地址数据结构（指定服务器的）（客户端socket地址数据结构可选（一般用于日志记录，不关心accept中填NULL））。
 
 #### 服务器端主函数
-
+```
 server.cc
-
+```
 ### 客户端
 
 #### 用户登入
@@ -89,9 +89,9 @@ log_out.cc
 **实现**：客户端检测到输入缓冲区是**QUIT**就调用shutdown关闭socket。
 
 #### 客户端主函数
-
+```
 client.cc
-
+```
 #### 头文件
 
 client.hpp
