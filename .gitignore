@@ -1,0 +1,46 @@
+# CMake 生成的文件
+/build/
+/out/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# 编译产物
+*.exe
+*.out
+*.app
+*.a
+*.so
+*.dll
+*.dylib
+
+# 依赖缓存
+/_deps/
+vcpkg_installed/
+conan/
+
+# IDE 和编辑器
+.vscode/
+.idea/
+cmake-build-*/
+*.swp
+*.swo
+*~
+
+# 日志和临时文件
+*.log
+temp/
+tmp/
+
+# 环境配置
+.env
+config.local.h
+
+# 测试和覆盖率
+Testing/
+coverage/
+lcov.info
