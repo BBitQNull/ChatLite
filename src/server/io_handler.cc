@@ -35,5 +35,4 @@ void io_handler () {
         thread logic_unit_1(logic_unit, server_chat_socket_fd);
         logic_unit_1.detach();
     }
-
 }

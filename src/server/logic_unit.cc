@@ -51,6 +51,7 @@ void logic_unit (int server_chat_socket_fd) {
                     cout << "error: Delete user of log out failed!" << endl;
                 }
             }
+            return;
         }
     }
 }
