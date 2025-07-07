@@ -41,4 +41,5 @@ int recv_bytes;
 template <size_t N>
 void mem_reset (char (&buf)[N]);
 // broadcast_message
-int broadcast_message ();
+template <int N>
+int broadcast_message (const char (&buf)[N]);
