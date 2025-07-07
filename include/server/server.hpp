@@ -7,6 +7,7 @@
 
 #define SERVER_PORT 7777
 #define SERVER_IP "127.0.0.1"
+#define MAX_CLIENT_NUM 5
 
 // server's socket address
 struct sockaddr_in server_socket = {
@@ -16,3 +17,7 @@ struct sockaddr_in server_socket = {
 };
 // server listen socket fd
 int server_listen_socket_fd;
+// server chat socket fd
+int server_chat_socket_fd;
+// logic_unit function
+void logic_unit (int server_chat_socket_fd);

@@ -17,5 +17,13 @@ void io_handler () {
     if (bind(server_listen_socket_fd, addr_ptr, sizeof(server_socket)) == -1) {
         cout << "error: bind error!" << strerror(errno) << endl;
     }
-
+    // 监听socket
+    if (listen(server_listen_socket_fd, MAX_CLIENT_NUM) == -1) {
+        cout << "error: listen error!" << strerror(errno) << endl;
+    }
+    // accept阻塞
+    for (;;) {
+        server_chat_socket_fd = accept(server_listen_socket_fd, NULL, NULL);
+        logic_unit(server_chat_socket_fd);
+    }
 }
