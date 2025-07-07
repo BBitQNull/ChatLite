@@ -4,7 +4,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <vector>
+#include <map>
 #include <string>
 #include <mutex>
 
@@ -13,7 +13,7 @@
 #define MAX_CLIENT_NUM 5
 #define BUFFER 1024
 
-using std::vector;
+using std::map;
 using std::string;
 using std::lock_guard;
 using std::mutex;
@@ -32,14 +32,13 @@ int server_chat_socket_fd;
 // logic_unit function
 void logic_unit (int server_chat_socket_fd);
 // online user list
-vector<string> online_users;
-// recv buf
-char recv_buf[BUFFER];
-// send buf
-char send_buf[BUFFER];
-// username
-string username;
+map<string, int> online_users;
 // global lock
 mutex global_mtx;
 // recv bytes
 int recv_bytes;
+// mem_reset
+template <size_t N>
+void mem_reset (char (&buf)[N]);
+// broadcast_message
+int broadcast_message ();
