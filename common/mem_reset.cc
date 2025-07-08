@@ -1,4 +1,3 @@
-#include "server.hpp"
 #include <algorithm>
 
 using std::fill;
