@@ -18,4 +18,5 @@ void username_input (int socket_fd, string &username) {
     if (send(socket_fd, username_send_buf, sizeof(username_send_buf), 0) == -1) {
         cout << "error: send username!" << strerror(errno) << endl;
     }
+    mem_reset(username_send_buf);
 }

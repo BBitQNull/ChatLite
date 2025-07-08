@@ -27,3 +27,10 @@ int choose = 0;
 string username;
 // username imput function
 void username_input (int socket_fd, string &username);
+// mem_reset
+template <size_t N>
+void mem_reset (char (&buf)[N]);
+// log out function
+int log_out (int socket_fd);
+// message handler function
+void message_handler (int socket_fd);

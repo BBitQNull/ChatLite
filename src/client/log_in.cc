@@ -40,6 +40,17 @@ void log_in () {
             cout << "------->" << flush;
             cin >> username;
             username_input(client_listen_socket_fd, username);
+            // 消息收发
+            void message_handler (int socket_fd);
+            break;
+        case 2 :
+            if (log_out(client_listen_socket_fd) == -1) {
+                return;
+            }
+            cout << "Expect to meet you next!" << endl;
+            break;
+        default :
+            cout << "error: Login!" << endl;
             break;
     }
 }
