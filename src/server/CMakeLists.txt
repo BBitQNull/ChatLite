@@ -9,4 +9,3 @@ target_sources(server PRIVATE
 )
 
 target_include_directories(server PRIVATE ${PROJECT_SOURCE_DIR}/include/server)
-
