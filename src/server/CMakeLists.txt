@@ -8,5 +8,5 @@ target_sources(server PRIVATE
     broadcast_message.cc
 )
 
-target_include_directories(server PUBLIC ${PROJECT_SOURCE_DIR}/include/server)
+target_include_directories(server PRIVATE ${PROJECT_SOURCE_DIR}/include/server)
 

@@ -13,7 +13,8 @@ using std::thread;
 
 void io_handler () {
     // 创建socket
-    if (server_listen_socket_fd = socket(PF_INET, SOCK_STREAM, 0) == -1) {
+    server_listen_socket_fd = socket(PF_INET, SOCK_STREAM, 0);
+    if (server_listen_socket_fd == -1) {
         cout << "error: socket!" << strerror(errno) << endl;
     }
     // 命名socket

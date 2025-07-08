@@ -4,4 +4,4 @@ target_sources(client PRIVATE
     client.cc
 )
 
-target_include_directories(client PUBLIC ${PROJECT_SOURCE_DIR}/include/client)
+target_include_directories(client PRIVATE ${PROJECT_SOURCE_DIR}/include/client)
