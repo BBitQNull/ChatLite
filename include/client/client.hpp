@@ -34,3 +34,7 @@ void mem_reset (char (&buf)[N]);
 int log_out (int socket_fd);
 // message handler function
 void message_handler (int socket_fd);
+// login function
+void log_in ();
+// recv_bytes
+int recv_bytes;

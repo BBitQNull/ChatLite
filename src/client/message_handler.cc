@@ -1,17 +1,33 @@
 #include "client.hpp"
 #include <iostream>
 #include <string>
+#include <thread>
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::flush;
 using std::cin;
+using std::thread;
 
 // send buf
 char send_buf[BUFFER];
+// recv buf
+char recv_buf[BUFFER];
+
+void recv_handler (int sock_fd) {
+    for (;;) {
+        recv_bytes = recv(sock_fd, recv_buf, sizeof(recv_buf), 0);
+        if (recv_bytes == -1) {
+            cout << "error: recv!" << strerror(errno) << endl;
+        }
+        cout << "---->" + string(recv_buf) << endl;
+    }
+}
 
 void message_handler (int socket_fd) {
+    thread recv_handler_thread(recv_handler);
+    recv_handler_thread.detach();
     for (;;) {
         cout << "---->" << flush;
         cin.getline(send_buf, BUFFER);
