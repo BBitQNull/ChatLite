@@ -43,3 +43,5 @@ void mem_reset (char (&buf)[N]);
 // broadcast_message
 template <int N>
 int broadcast_message (const char (&buf)[N]);
+// io_handler
+void io_handler ();

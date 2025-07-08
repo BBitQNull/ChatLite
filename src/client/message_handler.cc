@@ -26,7 +26,7 @@ void recv_handler (int sock_fd) {
 }
 
 void message_handler (int socket_fd) {
-    thread recv_handler_thread(recv_handler);
+    thread recv_handler_thread(recv_handler, socket_fd);
     recv_handler_thread.detach();
     for (;;) {
         cout << "---->" << flush;
