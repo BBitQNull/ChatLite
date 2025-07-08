@@ -2,6 +2,10 @@ add_executable(server)
 
 target_sources(server PRIVATE
     server.cc
+    mem_reset.cc
+    logic_unit.cc
+    io_handler.cc
+    broadcast_message.cc
 )
 
 target_include_directories(server PUBLIC ${PROJECT_SOURCE_DIR}/include/server)
