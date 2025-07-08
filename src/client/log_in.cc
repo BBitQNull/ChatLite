@@ -30,8 +30,8 @@ void log_in () {
     cout << "-------------------------------------" << endl;
     cout << "-------Welcome to ChatLite!----------" << endl;
     cout << "-------1:Login with a username-------" << endl;
-    cout << "-------2:Enter 'QUIT' to Logout------" << endl;
-    cout << "-------------------------------------" << endl;
+    cout << "-------2:Enter '2' to Logout---------" << endl;
+    cout << "-------Enter 'QUIT' to Logout--------" << endl;
     cout << "------->" << flush;
     cin >> choose;
     switch (choose) {
