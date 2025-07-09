@@ -30,6 +30,7 @@ void recv_handler (int sock_fd) {
             tty_set.tty_error();
             cout << "error: recv!" << strerror(errno) << endl;
         }
+        
         tty_set.tty_output();
         cout << string(recv_buf) << flush;
     }

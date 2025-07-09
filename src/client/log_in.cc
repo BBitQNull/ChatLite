@@ -29,6 +29,7 @@ namespace {
     // user's choose
     int choose = 0;
 }
+Terminal_setting_change tty_set;
 
 void log_in () {
     // 创建socket
@@ -55,8 +56,11 @@ void log_in () {
     cin >> choose;
     switch (choose) {
         case 1 :
+            tty_set.tty_pos_ch(1);
+            tty_set.tty_pos_ch(3);
             tty_set.tty_info();
-            cout << "Please input username:" << endl;
+            cout << "Please input username:";
+            tty_set.tty_pos_ch(2);
             tty_set.tty_input();
             cout << "-->" << flush;
             cin >> username;
