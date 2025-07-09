@@ -63,10 +63,6 @@ server.hpp
 server.cc
 ```
 
-#### 读写缓冲区清空函数
-
-mem_reset.cc
-
 ### 客户端
 
 #### 用户登入
@@ -106,3 +102,13 @@ username_input.cc
 client.hpp
 
 声明客户端各模块以及定义socket地址数据结构（指定服务器的）。
+
+### 公用文件
+
+#### 读写缓冲区清空函数
+
+mem_reset.hpp
+
+#### 终端设置
+
+terminal_setting.hpp
