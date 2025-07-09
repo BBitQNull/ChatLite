@@ -60,7 +60,6 @@ void log_in () {
             tty_set.tty_pos_ch(3);
             tty_set.tty_info();
             cout << "Please input username:";
-            tty_set.tty_pos_ch(2);
             tty_set.tty_input();
             cout << "-->" << flush;
             cin >> username;
