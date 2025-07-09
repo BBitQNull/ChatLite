@@ -35,12 +35,14 @@ public:
             cols = w.ws_col;
         }
     // 方法
-    // 更改文字颜色 color=1 消息输出；color=2 消息输入
+    // 更改文字颜色 color=1 消息输出；color=2 消息输入；color=3打印错误信息
     void change_color (int color) {
         if (color == 1) {
             terminal_color = "\033[38;5;171m";
-        } else {
+        } else if (color == 2) {
             terminal_color = "\033[38;5;159m";
+        } else {
+            terminal_color = "\033[38;5;196m";
         }
     }
     // 更改光标位置 position=1 保存光标位置；position=2 恢复光标位置
