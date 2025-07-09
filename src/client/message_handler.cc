@@ -25,7 +25,7 @@ void recv_handler (int sock_fd) {
         if (recv_bytes == -1) {
             cout << "error: recv!" << strerror(errno) << endl;
         }
-        cout << string(recv_buf) << endl;
+        cout << string(recv_buf) << flush;
     }
 }
 
@@ -33,7 +33,6 @@ void message_handler (int socket_fd) {
     thread recv_handler_thread(recv_handler, socket_fd);
     recv_handler_thread.detach();
     for (;;) {
-        // cout << "---->" << flush;
         cin.getline(send_buf, BUFFER);
         if (string(send_buf) == "QUIT") {
             return;
