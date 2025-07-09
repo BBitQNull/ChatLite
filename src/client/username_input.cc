@@ -4,6 +4,7 @@
 #include "client.hpp"
 #include <string>
 #include "mem_reset.hpp"
+#include "terminal_setting.hpp"
 
 using std::cout;
 using std::endl;
@@ -19,6 +20,7 @@ namespace {
 void username_input (int socket_fd, string &username) {
     strcpy(username_send_buf, username.c_str());
     if (send(socket_fd, username_send_buf, sizeof(username_send_buf), 0) == -1) {
+        tty_set.tty_error();
         cout << "error: send username!" << strerror(errno) << endl;
     }
     mem_reset(username_send_buf);
