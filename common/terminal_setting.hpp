@@ -10,6 +10,7 @@ using std::cout;
 using std::mutex;
 using std::lock_guard;
 using std::to_string;
+using std::flush;
 
 class Terminal_setting {
 private:
@@ -86,9 +87,9 @@ protected:
     void change_tty (int type) {
         lock_guard<mutex> lock(tty_mtx);
         if (type == 1) {
-            cout << terminal_color;
+            cout << terminal_color << flush;
         } else {
-            cout << terminal_position;
+            cout << terminal_position << flush;
         }
     }
 };
