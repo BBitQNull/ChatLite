@@ -3,18 +3,26 @@
 #include <iostream>
 #include <algorithm>
 #include "server.hpp"
+#include "mem_reset.hpp"
 
 using std::cout;
 using std::endl;
 using std::cin;
 using std::copy;
 
-// recv buf
-char recv_buf[BUFFER];
-// send buf
-char send_buf[BUFFER];
-// username
-string username;
+namespace {
+    // recv buf
+    char recv_buf[BUFFER];
+    // send buf
+    char send_buf[BUFFER];
+    // username
+    string username;
+    // global lock
+    mutex global_mtx;
+    // recv bytes
+    int recv_bytes;
+}
+map<string, int> online_users;
 
 void logic_unit (int server_chat_socket_fd) {
     // 接收对应客户端的用户名

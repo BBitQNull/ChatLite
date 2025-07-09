@@ -4,11 +4,12 @@
 using std::cout;
 using std::endl;
 
-// send buf
-char send_buf[BUFFER];
+namespace {
+    // send buf
+    char send_buf[BUFFER];
+}
 
-template <int N>
-int broadcast_message (const char (&buf)[N]) {
+int broadcast_message (const char (&buf)[BUFFER]) {
 
     for (const auto& pair : online_users) {
         strcpy(send_buf, (pair.first + "-->" + buf).c_str());

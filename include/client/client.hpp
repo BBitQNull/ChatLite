@@ -13,28 +13,11 @@
 
 using std::string;
 
-// server's socket address
-struct sockaddr_in server_socket = {
-    server_socket.sin_family = AF_INET,
-    server_socket.sin_port = htons(SERVER_PORT),
-    server_socket.sin_addr.s_addr = inet_addr(SERVER_IP)
-};
-// client listen socket fd
-int client_listen_socket_fd;
-// user's choose
-int choose = 0;
-// username
-string username;
 // username imput function
-void username_input (int socket_fd, string &username);
-// mem_reset
-template <size_t N>
-void mem_reset (char (&buf)[N]);
+extern void username_input (int socket_fd, string &username);
 // log out function
-int log_out (int socket_fd);
+extern int log_out (int socket_fd);
 // message handler function
-void message_handler (int socket_fd);
+extern void message_handler (int socket_fd);
 // login function
-void log_in ();
-// recv_bytes
-int recv_bytes;
+extern void log_in ();

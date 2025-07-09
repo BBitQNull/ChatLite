@@ -11,6 +11,19 @@ using std::cout;
 using std::endl;
 using std::thread;
 
+namespace {
+    // server listen socket fd
+    int server_listen_socket_fd;
+    // server chat socket fd
+    int server_chat_socket_fd;
+    // server's socket address
+    struct sockaddr_in server_socket = {
+        .sin_family = AF_INET,
+        .sin_port = htons(SERVER_PORT),
+        .sin_addr.s_addr = inet_addr(SERVER_IP)
+    };
+}
+
 void io_handler () {
     // 创建socket
     server_listen_socket_fd = socket(PF_INET, SOCK_STREAM, 0);

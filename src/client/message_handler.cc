@@ -10,10 +10,14 @@ using std::flush;
 using std::cin;
 using std::thread;
 
-// send buf
-char send_buf[BUFFER];
-// recv buf
-char recv_buf[BUFFER];
+namespace {
+    // send buf
+    char send_buf[BUFFER];
+    // recv buf
+    char recv_buf[BUFFER];
+    // recv_bytes
+    int recv_bytes;
+}
 
 void recv_handler (int sock_fd) {
     for (;;) {

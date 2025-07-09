@@ -10,10 +10,24 @@ using std::endl;
 using std::cin;
 using std::flush;
 
-// recv buf
-char recv_buf[BUFFER];
-// send buf
-char send_buf[BUFFER];
+namespace {
+    // recv buf
+    char recv_buf[BUFFER];
+    // send buf
+    char send_buf[BUFFER];
+    // client listen socket fd
+    int client_listen_socket_fd;
+    // server's socket address
+    struct sockaddr_in server_socket = {
+        .sin_family = AF_INET,
+        .sin_port = htons(SERVER_PORT),
+        .sin_addr.s_addr = inet_addr(SERVER_IP)
+    };
+    // username
+    string username;
+    // user's choose
+    int choose = 0;
+}
 
 void log_in () {
     // 创建socket

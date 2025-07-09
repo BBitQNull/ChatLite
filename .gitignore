@@ -44,3 +44,6 @@ config.local.h
 Testing/
 coverage/
 lcov.info
+
+/bin/
+.DS_Store

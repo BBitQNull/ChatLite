@@ -3,15 +3,18 @@
 #include <iostream>
 #include "client.hpp"
 #include <string>
+#include "mem_reset.hpp"
 
 using std::cout;
 using std::endl;
 using std::string;
 
-// recv buf
-char username_recv_buf[USERNAME_BUFFER];
-// send buf
-char username_send_buf[USERNAME_BUFFER];
+namespace {
+    // recv buf
+    char username_recv_buf[USERNAME_BUFFER];
+    // send buf
+    char username_send_buf[USERNAME_BUFFER];
+}
 
 void username_input (int socket_fd, string &username) {
     strcpy(username_send_buf, username.c_str());
