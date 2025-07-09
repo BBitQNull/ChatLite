@@ -10,7 +10,6 @@ using std::cout;
 using std::mutex;
 using std::lock_guard;
 using std::to_string;
-using std::flush;
 
 class Terminal_setting {
 private:
@@ -66,8 +65,8 @@ protected:
     // 更改光标位置 position=1 保存光标位置；position=2 恢复光标位置
     // position=3 光标位置移动到消息发送位置；position=4 光标移动到输出位置
     void change_position (int position) {
-        int x = rows - 2;
         lock_guard<mutex> lock(tty_mtx);
+        int x = rows - 2;
         switch (position) {
             case 1 :
                 terminal_position = "\033[s";
