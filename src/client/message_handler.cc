@@ -11,6 +11,7 @@ using std::flush;
 using std::cin;
 using std::thread;
 using std::mutex;
+using std::lock_guard;
 
 namespace {
     // send buf
@@ -27,11 +28,9 @@ void recv_handler (int sock_fd) {
     for (;;) {
         recv_bytes = recv(sock_fd, recv_buf, sizeof(recv_buf), 0);
         if (recv_bytes == -1) {
-            tty_set.tty_error();
             cout << "error: recv!" << strerror(errno) << endl;
         }
-        tty_set.tty_output();
-        cout << string(recv_buf) << flush;
+        cout << string(recv_buf) << endl;
     }
 }
 
@@ -39,13 +38,12 @@ void message_handler (int socket_fd) {
     thread recv_handler_thread(recv_handler, socket_fd);
     recv_handler_thread.detach();
     for (;;) {
-        tty_set.tty_input();
+        cout << "-->" << flush;
         cin.getline(send_buf, BUFFER);
         if (string(send_buf) == "QUIT") {
             return;
         }
         if (send(socket_fd, send_buf, sizeof(send_buf), 0) == -1 ) {
-            tty_set.tty_error();
             cout << "error: send!" << strerror(errno) << endl;
         }
     }
